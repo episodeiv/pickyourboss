@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title><%= title %></title>
+	<title>Pick Your Boss</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,23 +31,20 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">Pick Your Boss</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#about">About</a>
+						<a class="nav-link js-scroll-trigger" href="#start"><%= __('Get going') %></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#services">Services</a>
+						<a class="nav-link js-scroll-trigger" href="#whatsthis"><%= __('What\'s this?') %></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+						<a class="nav-link js-scroll-trigger" href="#contact"><%= __('Contact') %></a>
 					</li>
 				</ul>
 			</div>
@@ -59,69 +56,135 @@
 			<div class="row">
 				<div class="col-lg-10 mx-auto">
 					<h1 class="text-uppercase">
-						<strong>Your Favorite Source of Free Bootstrap Themes</strong>
+						<strong><%= __('Is the boss you have the boss you deserve?') %></strong>
 					</h1>
 					<hr>
 				</div>
 				<div class="col-lg-8 mx-auto">
-					<p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-					<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+					<p class="text-faded mb-5"><%= __(`Enter your company and choose who you would like to be
+						your boss. Then, find out whom others have chosen`) %></p>
+					<a class="btn btn-primary btn-xl js-scroll-trigger" href="#start"><%= __('Get going') %></a>
 				</div>
 			</div>
 		</div>
 	</header>
 
-	<section class="bg-primary" id="about">
+	<section class="bg-primary" id="start">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">
-					<h2 class="section-heading text-white">We've got what you need!</h2>
+					<h2 class="section-heading text-white">Ready to go?</h2>
 					<hr class="light my-4">
-					<p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-					<a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+
+					<div id="pyb-main">
+						<div class="pyb-company">
+							<p class="text-faded mb-4"> Enter your company below to proceed to the next step.</p>
+							<form class="pyb-company">
+								<div class="form-group">
+									<input type="text" name="company" id="company" class="form-control-lg" placeholder="Your Company" required>
+								</div>
+								<button class="btn btn-light btn-xl">Next <i class="fa fa-arrow-right"></i></button>
+							</form>
+
+						</div>
+
+						<div class="pyb-boss d-none">
+							<p class="text-faded mb-4"> Great! Now tell us who in your company would be your ideal boss.</p>
+							<form class="pyb-boss">
+								<div class="form-group">
+									<input type="text" name="boss" id="boss" class="form-control-lg" placeholder="The boss of your dreams" required>
+								</div>
+								<button class="btn btn-light btn-xl">Next <i class="fa fa-arrow-right"></i></button>
+							</form>
+						</div>
+
+						<div class="pyb-results d-none">
+							<p class="text-faded mb-4"> Thanks! Now let's see what others from your company have said.</p>
+
+
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="services">
+	<section id="whatsthis">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">At Your Service</h2>
+					<h2 class="section-heading"><%= __('What\'s this?') %></h2>
 					<hr class="my-4">
+					<p class="mb-5">The idea behind <em>Picking your Boss</em> is rather simple!</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mt-5 mx-auto">
+						<i class="fa fa-4x fa-building text-primary mb-3 sr-icons"></i>
+						<h3 class="mb-3">Select a company</h3>
+						<p class="text-muted mb-0">Try to type it correctly so your answers can be matched with others people's.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mt-5 mx-auto">
+						<i class="fa fa-4x fa-user text-primary mb-3 sr-icons"></i>
+						<h3 class="mb-3">Pick your boss</h3>
+						<p class="text-muted mb-0">Tell us who in your company you'd like to be your boss!</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mt-5 mx-auto">
+						<i class="fa fa-4x fa-pie-chart text-primary mb-3 sr-icons"></i>
+						<h3 class="mb-3">See the stats</h3>
+						<p class="text-muted mb-0">See who others have chosen to be their boss.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mt-5 mx-auto">
+						<i class="fa fa-4x fa-share text-primary mb-3 sr-icons"></i>
+						<h3 class="mb-3">Share</h3>
+						<p class="text-muted mb-0">Share this site and encourage others to participate!</p>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box mt-5 mx-auto">
-						<i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
-						<h3 class="mb-3">Sturdy Templates</h3>
-						<p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box mt-5 mx-auto">
-						<i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i>
-						<h3 class="mb-3">Ready to Ship</h3>
-						<p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box mt-5 mx-auto">
-						<i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
-						<h3 class="mb-3">Up to Date</h3>
-						<p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box mt-5 mx-auto">
-						<i class="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>
-						<h3 class="mb-3">Made with Love</h3>
-						<p class="text-muted mb-0">You have to make your websites with love these days!</p>
-					</div>
+				<div class="col-lg-12">
+					<p class="mb-2 lead">
+						Want more details? Sure thing!
+					</p>
+					<p class="mb-1">
+						Pick your boss is a stupidly simple but nontheless (possibly) interesting
+						social experiment. It asks two questions:
+					</p>
+					<ol class="mb-2">
+						<li>What would happen if you could pick your own boss among everyone at your company?</li>
+						<li>What wuold happen if everyone else at your company could do this as well?</li>
+					</ol>
+
+					<p class="mb-1">
+						The resulting <em>questions</em> are probably far more interesting than the
+						basic <em>premises</em>. How would power dynamics change? Would current bosses still
+						have employees below them? Would leadership concentrate on few selected
+						individuals or be spread out evenly? What would either of that say about the
+						leadership abilities of you and your coworkers?
+					</p>
+
+					<p class="mb-3">
+						This experiment can only thrive if as many people as possible from your company
+						join and cast their vote. So do <strong>encourage them</strong> if you wish to see a more
+						representative picture.
+					</p>
+
+					<p class="mb-5">
+						<strong>But please keep in mind</strong>: Just because people choose their favorite superior it does
+						not say anything about the qualifications or abilities of that person. Sometimes,
+						we pick what seems best but actually is worst for us.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -266,6 +329,7 @@
 
 	<!-- Custom scripts for this template -->
 	<script src="js/creative.min.js"></script>
+	<script src="js/pyb.js"></script>
 
 </body>
 
