@@ -25,7 +25,9 @@ router.get('/votes', function(request, response, next) {
 	var company_id = request.query.company_id || undefined;
 
 	if(typeof(company_id) === 'undefined') {
+		console.log("Got a GET VOTES request without a company_id");
 		response.send("Error: Please provide a company_id");
+		return;
 	}
 
 	pool.connect(function(err, client, done) {
