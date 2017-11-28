@@ -48,7 +48,7 @@ router.post('/', function(request, response, next) {
 				[company_id, boss, sourceip]);
 
 
-			response.json({success: true});
+			response.json({success: true, company_id: company_id});
 			return;
 
 		} catch(err) {

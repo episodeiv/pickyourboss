@@ -17,8 +17,21 @@
 			$('div.pyb-boss').addClass('d-none');
 			$('div.pyb-results').removeClass('d-none');
 
-			alert(company);
-			alert(boss);
+			$.post('/add', {company_name: company, boss: boss}, function(response) {
+				var result = response.success;
+
+				if(result == true) {
+					var company_id = response.company_id;
+
+					$.get('/get/votes', {company_id: company_id}, function(votes) {
+						console.dir(votes);
+					});
+
+				}
+				else {
+					$('.pyb-results-content').text('Argh, sorry, something went wrong while submitting your boss. Please try again later.')
+				}
+			});
 		}
 	})
 })(jQuery);
