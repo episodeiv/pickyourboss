@@ -10,6 +10,7 @@
 			company = t.find('input#company').val();
 			$('div.pyb-company').addClass('d-none');
 			$('div.pyb-boss').removeClass('d-none');
+			$('input#boss').focus();
 		}
 		else if(t.hasClass('pyb-boss')) {
 			boss = t.find('input#boss').val();
@@ -23,8 +24,14 @@
 				if(result == true) {
 					var company_id = response.company_id;
 
-					$.get('/get/votes', {company_id: company_id}, function(votes) {
-						console.dir(votes);
+					$.get('/get/votes', {company_id: company_id}, function(response) {
+						var votes = response.votes;
+
+						$('.pyb-results-company').text(company_name);
+
+						$.each(votes, function(i, vote) {
+							$('.pyb-results-content table').append('<tr><th>' + vote.boss + '</th><td>' + vote.count + '</td></tr>');
+						});
 					});
 
 				}
